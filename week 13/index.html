@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="title">Hello!</h1>
+        <button onClick="SayHello()" class="btn-push"><span>Please :)</span><span>Click here</span></button>
+        <div class="calc-body">
+            <div class="calc-input">
+                <input type="text" class="number-1" id="number1" placeholder="NUMBER ONE">
+                <input type="text" class="number-2" id="number2" placeholder="NUMBER TWO">
+            </div>
+            <div class="operators">
+                <button class="oprators__btn" id="plus" onclick="op='+'"><span>+</span></button>
+                <button class="oprators__btn" id="minus" onclick="op='-'"><span>-</span></button>
+                <button class="oprators__btn" id="multiple" onclick="op='*'"><span>*</span></button>
+                <button class="oprators__btn" id="division" onclick="op='/'"><span>/</span></button>
+            </div>
+
+            <button class="btn-result" onclick="result()">result</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

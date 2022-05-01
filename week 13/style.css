@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-image: url(https://phonoteka.org/uploads/posts/2021-06/1623435543_9-phonoteka_org-p-formuli-doska-tekstura-krasivo-9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 10em;
+    color: rgba(255, 130, 5, 0.992);
+    padding-top: 3%;
+}
+
+.btn-push {
+    position: relative;
+    bottom: 10px;
+    border: none;
+    box-shadow: none;
+    width: 150px;
+    height: 50px;
+    line-height: 75px;
+    background: transparent;
+    transition: all .5s ease;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 55px;
+    outline: none;
+}
+
+.btn-push span {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    background: orange;
+    background: linear-gradient(-20deg, rgb(239, 150, 49) 0%, rgb(245, 29, 9) 90%);
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    text-align: center;
+    transition: all .3s;
+}
+
+.btn-push span:nth-child(1) {
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001;
+    transform: rotateX(90deg);
+    transform-origin: 50% 50% -20px;
+}
+
+.btn-push span:nth-child(2) {
+    transform-origin: 50% 50% -20px;
+    transform: rotateX(0deg);
+}
+
+.btn-push:hover span:nth-child(1) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    transform: rotateX(0deg);
+}
+
+.btn-push:hover span:nth-child(2) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    color: transparent;
+    transform: rotateX(-90deg);
+}
+
+.calc-body {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calc-input {
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.number-1,
+.number-2 {
+    outline: none;
+    width: 150px;
+    height: 100px;
+    border-radius: 5%;
+    background: linear-gradient(rgba(255, 255, 255, 0.305), rgb(255, 255, 255));
+    text-align: center;
+    font-size: 3em;
+}
+
+.number-1::placeholder,
+.number-2::placeholder {
+    font-size: 15px;
+    color: rgb(111, 116, 128);
+}
+
+.operators {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    padding: 3% 0;
+}
+
+.oprators__btn {
+    width: 70px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: orange;
+    border: transparent;
+    background: linear-gradient(0deg, rgba(146, 164, 172, 0.371) 0%, rgb(113, 116, 119) 100%);
+    transition: .5s;
+
+}
+
+.oprators__btn:hover,
+.oprators__btn:focus {
+    box-shadow: 0 0.5em 1em 0 orange;
+    transform: translateY(-0.4em);
+}
+
+.btn-result {
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: none;
+    text-transform: uppercase;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    background: linear-gradient(rgba(11, 11, 11, 0.342), rgb(3, 3, 3));
+}
+
+.btn-result:hover,
+.btn-result:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgb(255, 0, 0);
+    }
+}
+
+#result {
+    width: 250px;
+    height: 100px;
+    border-radius: 5%;
+    background: linear-gradient(rgba(255, 255, 255, 0.305), rgb(255, 255, 255));
+    text-align: center;
+    font-size: 3em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    color: aliceblue;
+    text-align: right;
+}
