@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallery.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0% 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            margin-top: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            height: 80vh;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            padding: 30px;
+            margin: 0 10%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+            color: rgb(187, 185, 185);
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        button:hover {
+            box-shadow: 1px 1px 10px 1px rgb(201, 198, 198);
+        }
+    </style>
+
+    <div class="wrapper">
+        <button id="btn" onclick="changeImgBefore()">before</button>
+        <img name="slide">
+        <button id="btn" onclick="changeImgAfter()">after</button>
+    </div>
+
+    <script src="slider.js">
+
+    </script>
+
+</body>
+
+</html>

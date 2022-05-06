@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .cards {
+            margin-top: 10%;
+        }
+
+        .cards__container {
+            display: flex;
+            justify-content: center;
+            gap: 5%;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            padding: 15px;
+            background-color: rgba(184, 184, 225, 0.303);
+        }
+
+        .title {
+            margin-bottom: 3%;
+        }
+
+        .selected {
+            background-color: rgba(226, 116, 232, 0.303);
+        }
+    </style>
+
+    <div class="cards">
+        <div class="cards__container">
+            <div class="card" onclick="select(this)">
+                <h2 class="title">Title</h2>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dolorum ipsum eaque enim
+                    sint aliquid
+                    placeat odit fugiat, cupiditate optio beatae, aperiam doloremque facilis laboriosam. Labore
+                    provident dignissimos sit quia.</p>
+            </div>
+            <div class="card" onclick="select(this)">
+                <h2 class="title">Title</h2>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dolorum ipsum eaque enim
+                    sint aliquid
+                    placeat odit fugiat, cupiditate optio beatae, aperiam doloremque facilis laboriosam. Labore
+                    provident dignissimos sit quia.</p>
+            </div>
+            <div class="card" onclick="select(this)">
+                <h2 class="title">Title</h2>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dolorum ipsum eaque enim
+                    sint aliquid
+                    placeat odit fugiat, cupiditate optio beatae, aperiam doloremque facilis laboriosam. Labore
+                    provident dignissimos sit quia.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function select(sender) {
+            sender.classList.add('selected')
+        }
+    </script>
+</body>
+
+</html>

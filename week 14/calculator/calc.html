@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calc.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background">
+        <p>Изменить тему:</p>
+        <button class="bg-btn" onclick="changeBgLight()">светлая</button>
+        <button class="bg-btn" onclick="changeBgDark()">темная</button>
+        <button class="bg-btn" onclick="changeBgSimple()">простая</button>
+    </div>
+    <div class=" wrapper" onclick="changeBg()">
+        <div class="display">
+            <input type="text" id="num1">
+            <input type="text" id="num2">
+        </div>
+        <div class="operators">
+            <button class="operators__btn" id="sum" onclick="sum()">сложить</button>
+            <button class="operators__btn" id="min" onclick="min()">вычесть</button>
+            <button class="operators__btn" id="mult" onclick="mult()">умножить</button>
+            <button class="operators__btn" id="div" onclick="div()">разделить</button>
+        </div>
+        <div id="result"></div>
+        <button class="clearAll" id="clearAll" onclick="clearAll()">Очистить</button>
+    </div>
+    <script src="calc.js"></script>
+</body>
+
+</html>
