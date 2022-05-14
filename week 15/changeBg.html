@@ -11,13 +11,46 @@
 <body>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        #color-selector {
+            background-color: rgb(227, 227, 227);
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
     </style>
 
-
+    <div class="wrapper">
+        <select id="color-selector">
+            <option disabled selected="selected">Select theme</option>
+            <option value="light">light</option>
+            <option value="dark">dark</option>
+            <option value="pink">pink</option>
+            <option value="blue">blue</option>
+        </select>
+        <h1>This is page</h1>
+    </div>
     <script>
-
-
+        let selector = document.querySelector('#color-selector');
+        let changeTheme = () => {
+            let theme =
+                (selector.value == 'light') ? '#B1C2BD' :
+                (selector.value == 'dark') ? '#5F6A62' :
+                (selector.value == 'pink') ? '#FCEEF5' :
+                (selector.value == 'blue') ? '#92B2CA' : '';
+            document.body.style.background = theme;
+        }
+        selector.addEventListener('click', changeTheme);
     </script>
 </body>
 
