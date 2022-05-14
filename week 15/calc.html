@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            width: 50%;
+            height: 50vh;
+            margin: 10% auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+            border: 2px solid rgb(205, 165, 178);
+        }
+
+        input {
+            outline: none;
+        }
+
+        button {
+            background-color: rgba(255, 192, 203, 0.579);
+            width: 40%;
+            padding: 5%;
+            border: transparent;
+            cursor: pointer;
+            margin-bottom: 2%;
+        }
+
+        input {
+            border: 2px solid rgb(205, 165, 178);
+            margin-bottom: 3%;
+        }
+
+        .operators {
+            text-align: center;
+        }
+    </style>
+
+    <div class="wrapper">
+        <div class="inputs">
+            <label for="num1" class="text">Ввести первое число:</label>
+            <input type="text" id="num1"><br>
+            <label for="num2" class="text">Ввести второе число:</label>
+            <input type="text" id="num2">
+        </div>
+        <div class="operators">
+            <button id="plus">сложить</button>
+            <button id="min">вычесть</button>
+            <button id="mult">умножить</button>
+            <button id="div">разделить</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let num1, num2, result;
+
+        let getNumbers = () => {
+            num1 = document.querySelector('#num1').value;
+            num2 = document.querySelector('#num2').value;
+            result = document.querySelector('#result');
+            return
+        }
+
+        let clearNum = () => {
+            document.querySelector('#num1').value = '';
+            document.querySelector('#num2').value = '';
+        }
+
+        let plus = () => {
+            getNumbers();
+            clearNum();
+            result = +num1 + +num2;
+            document.querySelector('#result').innerHTML = result;
+        }
+        document.querySelector('#plus').onclick = plus;
+
+        let min = () => {
+            getNumbers();
+            clearNum();
+            result = +num1 - +num2;
+            document.querySelector('#result').innerHTML = result;
+        }
+        document.querySelector('#min').onclick = min;
+
+        let mult = () => {
+            getNumbers();
+            clearNum();
+            result = +num1 * +num2;
+            document.querySelector('#result').innerHTML = result;
+        }
+        document.querySelector('#mult').onclick = mult;
+
+        let div = () => {
+            getNumbers();
+            clearNum();
+            result = +num1 / +num2;
+            (num2 == 0) ? alert('На ноль делить нельзя!'): document.querySelector('#result').innerHTML = result;
+        }
+        document.querySelector('#div').onclick = div;
+    </script>
+</body>
+
+</html>

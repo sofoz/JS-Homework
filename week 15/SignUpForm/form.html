@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <title>Sig Up Form</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="popup hidden ">
+            <div class="popup-card">
+                <p class="popup-text"></p>
+                <button class="btn-close" id="btn-close">Close</button>
+            </div>
+
+
+        </div>
+        <div class="signup">
+            <div class="container">
+                <h1 class="title">Please sign up to continue</h1>
+                <form class="form-container">
+                    <div class="input-group">
+                        <label for="first-name" class="inpup-label">First Name</label>
+                        <input type="text" class="form-control" id="first-name" placeholder="your first name">
+                        <span class="help-block" id="firstNameError"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="last-name" class="inpup-label">Last Name</label>
+                        <input type="text" class="form-control" id="last-name" placeholder="your last name">
+                        <span class="help-block" id="lastNameError"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="inpup-label">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="yours@example.com">
+                        <span class="help-block" id="emailError"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="password" class="inpup-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="your password">
+                        <span class="help-block" id="passwordError"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="passwordRep" class="inpup-label">Repeat password</label>
+                        <input type="password" class="form-control" id="passwordRep" placeholder="repeat your password">
+                        <span class="help-block" id="passwordRepError"></span>
+                    </div>
+                </form>
+                <p class="text">By signing up you confirm you have read our Terms & Conditions and Privacy Policy.
+                </p>
+                <button class="btn-sign" id="btn-sign">sign up</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>

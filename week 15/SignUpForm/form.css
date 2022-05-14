@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    width: 5%;
+}
+
+.container {
+    margin: 0 5%;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.signup {
+    width: 40%;
+    margin: auto;
+    background-color: rgba(128, 128, 128, 0.129);
+    padding: 3%;
+}
+
+.title {
+    margin-bottom: 5%;
+}
+
+.input-group {
+    margin: 0 0 10px;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.inpup-label {
+    margin-bottom: 5px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    outline: none;
+    color: #000;
+    height: 42px;
+    border-radius: 2px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.text {
+    padding: 4% 0;
+    font-size: 14px;
+}
+
+.btn-sign {
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2%;
+    width: 40%;
+    cursor: pointer;
+    transition: .6s;
+    border: transparent;
+}
+
+.btn-sign:hover {
+    background-color: rgba(0, 0, 0, 0.695);
+}
+
+.help-block {
+    padding: 1% 0;
+    font-size: 14px;
+    color: rgb(211, 7, 7);
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.485);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-card {
+    width: 30%;
+    background-color: rgb(229, 229, 229);
+    padding: 3%;
+}
+
+.btn-close {
+    border: 1px solid rgb(179, 178, 178);
+    margin-top: 5%;
+    padding: 3% 5%;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.btn-close:hover {
+    background: rgb(188, 188, 188);
+}
+
+.hidden {
+    display: none;
+
+}
