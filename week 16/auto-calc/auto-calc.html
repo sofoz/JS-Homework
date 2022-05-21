@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auto-calc.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1 class="title">Калькулятор расчета стоимости автомобиля</h1>
+        <div class="container">
+            <div class="row-1">
+                <select class="brand">
+                    <option class="brand-selected" selected disabled hidden>марка</option>
+                    <option value="Audi" class="brand__item">Audi</option>
+                    <option value="BMW" class="brand__item">BMW</option>
+                    <option value="Jeep" class="brand__item">Jeep</option>
+                    <option value="Porsche" class="brand__item">Porsche</option>
+                    <option value="Volkswagen" class="brand__item">Volkswagen</option>
+                </select>
+
+                <select class="model" disabled>
+                    <option class="model-selected" selected disabled hidden>модель</option>
+                </select>
+            </div>
+            <div class="row-2">
+                <select class="year" disabled>
+                    <option class="year-selected" selected disabled hidden>год выпуска</option>
+                    <option value="1">1995-2000</option>
+                    <option value="2">2001-2006</option>
+                    <option value="3">2006-2010</option>
+                    <option value="4">2010-2015</option>
+                    <option value="5">2016-2021</option>
+                </select>
+                <input type="text" placeholder="Пробег, км" class="run">
+            </div>
+            <fieldset class="fuel">
+                <legend>Тип топлива</legend>
+                <div class="fuel-name">
+                    <p>бензин (включая гибрид)</p>
+                    <p>дизельное топливо</p>
+                    <p>электрический</p>
+                </div>
+                <div class="fuel-radio">
+                    <input type="radio" value="petrol" id="petrol" name="fuel-input">
+                    <input type="radio" value="diesel" id="diesel" name="fuel-input">
+                    <input type="radio" value="electro" id="electro" name="fuel-input">
+                </div>
+            </fieldset>
+            <input id="output" type="text" placeholder="мощность, л.с.">
+            <fieldset class="box">
+                <legend>Коробка передач</legend>
+                <div class="box-name">
+                    <p>автомат</p>
+                    <p>механика</p>
+                    <p>робот</p>
+                </div>
+                <div class="box-radio">
+                    <input type="radio" value="auto" id="auto" class="box-input" name="box-input">
+                    <input type="radio" value="manual" id="manual" class="box-input" name="box-input">
+                    <input type="radio" value="robot" id="robot" class="box-input" name="box-input">
+                </div>
+            </fieldset>
+            <fieldset class="comfort">
+                <legend>Комфорт</legend>
+                <div class="comfort-name">
+                    <p>Кондиционер</p>
+                    <p>Камера</p>
+                    <p>Бортовой компьютер</p>
+                    <p>Аудиосистема</p>
+                    <p>Навигационная система</p>
+                </div>
+                <div class="comfort-check">
+                    <input type="checkbox" value="10000" name="comfort-input" class="comfort">
+                    <input type="checkbox" value="20000" name="comfort-input" class="comfort">
+                    <input type="checkbox" value="30000" name="comfort-input" class="comfort">
+                    <input type="checkbox" value="40000" name="comfort-input" class="comfort">
+                    <input type="checkbox" value="50000" name="comfort-input" class="comfort">
+                </div>
+            </fieldset>
+            <button id="result">Расчитать стоимость</button>
+            <p>Примерная стоимость вашего автомобиля:</p>
+            <p class="sum"></p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

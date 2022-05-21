@@ -95,16 +95,6 @@ let openPopup = () => {
 }
 let closePopup = () => {
     popup.classList.add('hidden');
+    location.reload();
 }
 close.addEventListener('click', closePopup);
-
-
-
-/*function signButton() {
-    if (firstName.value != '' && lastName.value != '' && email.value != '' && password.value != '' && password.value.length >= 4 && passwordRep.value != '' && passwordRep.value == password.value) {
-        reset()
-        sign.addEventListener('click', openPopup);
-    } else {
-        check()
-    }
-};*/

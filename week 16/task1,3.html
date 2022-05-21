@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .output {
+            margin: 300px auto;
+            text-align: center;
+            font-size: 24px;
+        }
+    </style>
+    <div class="output">
+        <div class="numbers"></div>
+        <div class="sort"></div>
+        <div class="result"></div>
+    </div>
+    <script>
+        //Task 1
+        let sumInput = () => {
+            let numbers = [];
+            let value = 0;
+            let sum = 0;
+
+            while (true) {
+                value = +prompt('Введите ваше значение');
+                if (value == '' || isNaN(value)) break;
+                numbers.push(value);
+                sum += value;
+            }
+            document.querySelector('.numbers').innerHTML = `Введенные вами значения: ${numbers}`;
+            numbers.sort((a, b) => a - b);
+            document.querySelector('.sort').innerHTML = `Отсортированные значения: ${numbers}`;
+            document.querySelector('.result').innerHTML = `Cумма ваших значений: ${sum}`;
+        }
+        sumInput()
+        //нажатие на кнопку отмены - null
+
+        //Task 3
+        //1
+        let arr = ['js', 'css', 'html'];
+        console.log(arr[0]);
+
+        //2
+        let arr1 = [0, 1, false, 2, undefined, '', 3, null];
+        let trueArr1 = arr1.filter(function (number) {
+            return number > 0;
+        })
+        console.log(trueArr1);
+
+        //3
+        let arr2 = [
+            [1, 2],
+            [1, 2, 3],
+            [1, 2, 3, 4]
+        ];
+        for (let elem of arr2) {
+            if (elem.length > 3) {
+                console.log(elem);
+            }
+        };
+    </script>
+</body>
+
+</html>
