@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5% auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .comment {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2%;
+        }
+
+        .photo {
+            width: 15%;
+            height: 100%;
+        }
+
+        .output {
+            width: 50%;
+            height: 40vh;
+        }
+
+        .input {
+            padding: 1%;
+            outline: none;
+        }
+
+        .btn {
+            padding: 1%;
+            cursor: pointer;
+            background-color: rgba(30, 72, 96, 0.141);
+            transition: .5s;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: rgba(51, 84, 104, 0.401);
+        }
+
+        .new {
+            border: 2px solid rgba(23, 74, 81, 0.397);
+            padding: 2%;
+            margin: 5% 0;
+            display: flex;
+            gap: 5%
+        }
+
+        .date {
+            text-align: right;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            gap: 2%;
+            width: inherit;
+            width: 100%;
+        }
+
+        .date {
+            font-style: italic;
+            color: rgba(0, 0, 0, 0.355);
+        }
+
+        .delete {
+            align-self: flex-end;
+            margin-top: auto;
+            border: none;
+            background-color: #fff;
+            cursor: pointer;
+            font-style: italic;
+            transition: .5s;
+        }
+
+        .delete:hover {
+            color: rgba(0, 0, 0, 0.342);
+        }
+    </style>
+
+    <div class="container">
+        <h1 class="title">Введите комментарий:</h1>
+        <div class="comment">
+            <textarea class="input" cols="73" rows="5" placeholder="ваш комментарий" required></textarea>
+            <button class="btn">Отправить</button>
+        </div>
+        <div class="output"></div>
+    </div>
+
+    <script>
+        "use strict";
+        const btn = document.querySelector('.btn');
+        const input = document.querySelector('.input');
+        const output = document.querySelector('.output');
+
+        const date = new Date();
+        const outDate = (
+            `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+        );
+
+        let comments = [];
+
+        let getComment = function () {
+            let initial = input.value.replace(/viagra|xxx/ig, "***");
+            comments.push(initial);
+            for (let i = 0; i < comments.length; i++) {
+                i = output.insertAdjacentHTML("afterbegin",
+                    `<div class="new">
+            <img class="photo" src="https://miro.medium.com/max/2400/1*1WCjO1iYMo7J7Upp8KMfLA@2x.jpeg">
+            <div class="body">
+            <div class="date">${outDate}</div>
+            <div class="new-text">${initial}</div>
+            <button class="delete">удалить</button>
+            </div>
+            </div>`
+                );
+
+                //неправильно работает: удаляет все комментарии и невозможно после удаления добавить блок
+                const del = document.querySelector('.delete');
+                del.addEventListener('click', () => {
+                    for (let i = 0; i < comments.length; i++) {
+                        comments[i] = output.remove()
+                    }
+                })
+            }
+            input.value = '';
+        };
+
+        //по нажатию на кнпку
+        btn.addEventListener('click', (e) => {
+            if (input.value !== '') {
+                getComment()
+            }
+        });
+
+        //по нажатию на enter
+        //как убрать пустую строку, если нажимаем кнопку два раза?
+        input.addEventListener('keydown', (e) => {
+            if (e.keyCode === 13 && input.value !== '') {
+                getComment()
+            }
+        });
+    </script>
+</body>
+
+</html>

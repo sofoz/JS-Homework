@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 10% auto;
+            width: 40%;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 2%;
+            width: 30%;
+            cursor: pointer;
+            background-color: rgba(46, 41, 42, 0.136);
+            border: none;
+            transition: .5s;
+            margin-bottom: 3%
+        }
+
+        .btn:hover {
+            background-color: rgba(56, 52, 53, 0.582);
+        }
+
+        div {
+            margin-bottom: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Сгенерировать случайные числа</h1>
+        <button class="btn">начать</button>
+        <div class="generate"></div>
+        <div class="min"></div>
+        <div class="max"></div>
+        <div class="sum"></div>
+        <div class="mult"></div>
+        <div class="average"></div>
+    </div>
+    <script>
+        "use strict";
+        const btn = document.querySelector('.btn');
+
+        let getRandomNum = function (min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        };
+
+        btn.addEventListener('click', (e) => {
+            let numbers = [];
+            for (let i = 0; i < 10; i++) {
+                numbers.push(getRandomNum(-10, 10));
+            }
+
+            document.querySelector('.generate').innerHTML = `Сгенерировали: ${numbers}`;
+            //spread(...) позволяет передавать элементы массива в качестве отдельных аргументов, Мath не принимает массивы
+            document.querySelector('.min').innerHTML = `Минимальное: ${Math.min(...numbers)}`;
+            document.querySelector('.max').innerHTML = `Максимальное: ${Math.max(...numbers)}`;
+
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            document.querySelector('.sum').innerHTML = `Сумма: ${sum}`
+
+            let mult = 1;
+            for (let i = 0; i < numbers.length; i++) {
+                mult *= numbers[i];
+            }
+            document.querySelector('.mult').innerHTML = `Произведение: ${mult}`
+
+            document.querySelector('.average').innerHTML = `Среднее арифметическое: ${sum/numbers.length}`
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -7,20 +7,17 @@ let volModels = ['Caddy', 'Golf', 'Passat', 'Polo', 'Touareg'];
 
 //опции бренда и моделей
 let brand = document.querySelector('.brand');
-//console.log(brand);
 let selectModel = document.querySelector('.model');
 let models = [];
 
 //переменные года выпуска
 let year = document.querySelector('.year');
-//console.log(year);
 
 //переменные для расчета
 let calc = [];
 
 brand.addEventListener('change', (e) => {
     let currentBrand = e.currentTarget.value;
-    //console.log(currentBrand);
 
     //базовая стоимость авто + варианты моделей в зависимости от бренда. на стоимость не влиет
     function calcBrand() {
@@ -46,7 +43,6 @@ brand.addEventListener('change', (e) => {
         };
     }
     calcBrand()
-    //console.log(calc);
 
     //очистка селекта
     selectModel.innerHTML = '';
@@ -64,7 +60,6 @@ brand.addEventListener('change', (e) => {
         let newOp = document.createElement("option");
         newOp.innerText = i;
         selectModel.appendChild(newOp);
-        //console.log(newOp.value);
     });
 })
 
@@ -76,7 +71,6 @@ year.addEventListener('change', (e) => {
             (currentYear == '3') ? (calc[1] = +150000) :
                 (currentYear == '4') ? (calc[1] = +200000) :
                     (currentYear == '5') ? (calc[1] = +250000) : '';
-    //console.log(calc);
 });
 
 //тип топлива
@@ -104,7 +98,6 @@ let boxes = document.querySelectorAll('.box-input');
 
 boxes.forEach((box) => {
     box.addEventListener('input', (e) => {
-        //console.log(box.value)
         (box.value == 'auto') ? (calc[5] = +50000) :
             (box.value == 'manual') ? (calc[5] = +30000) :
                 (box.value == 'robot') ? (calc[5] = +300000) : '';
@@ -131,16 +124,11 @@ btn.addEventListener('click', (e) => {
     function getComfort() {
         for (let comf of comforts) {
             let checkComf;
-            if (true) {
-                if (comf.checked) {
-                    checkComf = +comf.value;
-                } else {
-                    checkComf = 0;
-                }
-            } else {
+            if (comf.checked) {
                 checkComf = +comf.value;
+            } else {
+                checkComf = 0;
             }
-            console.log(checkComf);
             sum = sum + checkComf;
         }
         return sum;
@@ -149,3 +137,6 @@ btn.addEventListener('click', (e) => {
     //калькулятор 
     document.querySelector('.sum').innerHTML = calc.reduce((a, b) => a + b, 0) + sum;
 });
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            width: 40%;
+            margin: 10% auto;
+            text-align: center;
+            padding: 3%;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .btn {
+            padding: 1%;
+            cursor: pointer;
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset class="wrapper">
+        <div class="main">
+            <label class="title">Введите ваши данные:</label><br>
+            <input class="initial" type="text" placeholder="ФИО"><br>
+            <button class="btn">Преобразовать</button>
+        </div>
+        <div class="output"></div>
+    </fieldset>
+
+    <script>
+        "use strict";
+        const btn = document.querySelector('.btn');
+
+        btn.addEventListener('click', (e) => {
+            const initial = document.querySelector('.initial').value;
+
+            //убрать пробелы внутри строки 
+            //все остальные 'лишние' пробелы замнить на одинарный с помощью рег выражения
+            //деструктуризация
+            let [surname, name, middlename] = ((initial.trim()).replace(/\s+/g, ' ')).split(' ');
+
+            //substring() возвращает подстроку строки от одного индекса и до конца строки
+            let surnameOut = surname[0].toUpperCase() + surname.toLowerCase().substring(1);
+            let nameOut = name[0].toUpperCase() + name.toLowerCase().substring(1);
+            let middlenameOut = middlename[0].toUpperCase() + middlename.toLowerCase().substring(1);
+
+            document.querySelector('.output').innerHTML =
+                `Фамилия: ${surnameOut} <br> Имя: ${nameOut} <br> Отчество: ${middlenameOut}`;
+
+        })
+    </script>
+</body>
+
+</html>
