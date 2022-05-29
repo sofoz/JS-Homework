@@ -8,7 +8,7 @@ let volModels = ['Caddy', 'Golf', 'Passat', 'Polo', 'Touareg'];
 //опции бренда и моделей
 let brand = document.querySelector('.brand');
 let selectModel = document.querySelector('.model');
-let models = [];
+let models;
 
 //переменные года выпуска
 let year = document.querySelector('.year');
@@ -20,29 +20,27 @@ brand.addEventListener('change', (e) => {
     let currentBrand = e.currentTarget.value;
 
     //базовая стоимость авто + варианты моделей в зависимости от бренда. на стоимость не влиет
-    function calcBrand() {
-        if (currentBrand == 'Audi') {
-            calc[0] = +1000000;
-            models = audiModels;
-        };
-        if (currentBrand == 'BMW') {
-            calc[0] = +1200000;
-            models = bmvModels;
-        };
-        if (currentBrand == 'Jeep') {
-            calc[0] = +900000;
-            models = jeepModels;
-        };
-        if (currentBrand == 'Porsche') {
-            calc[0] = +1500000;
-            models = porsheModels;
-        };
-        if (currentBrand == 'Volkswagen') {
-            calc[0] = +800000;
-            models = volModels;
-        };
-    }
-    calcBrand()
+    if (currentBrand == 'Audi') {
+        calc[0] = +1000000;
+        models = audiModels;
+    };
+    if (currentBrand == 'BMW') {
+        calc[0] = +1200000;
+        models = bmvModels;
+    };
+    if (currentBrand == 'Jeep') {
+        calc[0] = +900000;
+        models = jeepModels;
+    };
+    if (currentBrand == 'Porsche') {
+        calc[0] = +1500000;
+        models = porsheModels;
+    };
+    if (currentBrand == 'Volkswagen') {
+        calc[0] = +800000;
+        models = volModels;
+    };
+
 
     //очистка селекта
     selectModel.innerHTML = '';
