@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/task-1.css">
+    <title>Quize</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="title">Опросник для хозяев котиков</h1>
+        <fieldset>
+            <legend> Информация о хозяине </legend>
+            <div>
+                <label for="owner-name">Имя</label>
+                <input type="text" id="owner-name" title="Обязательное поле" required>
+            </div>
+            <br>
+            <div>
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname">
+            </div>
+            <br>
+            <div>
+                <label for="email">Электронная почта</label>
+                <input type="text" id="email" title="Обязательное поле" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Информация о питомце</legend>
+            <div>
+                <label for="petname">Кличка питомца</label>
+                <input type="text" id="petname" title="Обязательное поле" required>
+            </div>
+            <div>
+                <p>Порода питомца:</p>
+                <select title="Обязательное поле" required>
+                    <option value="1">Мейн-кун</option>
+                    <option value="2">Шотландская вислоухая кошка</option>
+                    <option value="3">Бенгальская кошка</option>
+                    <option value="4">Британская короткошерстаная</option>
+                    <option value="5">Абиссинская кошка</option>
+                    <option value="6">Русская голубая</option>
+                    <option value="7">Сибирская кошка</option>
+                    <option value="8">Короткошерстный ориентал</option>
+                    <option value="9">просто красивый котик</option>
+                </select>
+            </div>
+            <div>
+                <label for="sex">Пол питомца:</label>
+                <div class="row">
+                    <p>самец</p>
+                    <input type="radio" name="s" id="sex" value="m" />
+                </div>
+                <div class="row">
+                    <p>самка</p>
+                    <input type="radio" name="s" value="f" />
+                </div>
+            </div>
+            <div>
+                <label for="age">Возраст питомца:</label>
+                <input type="number" name="age" id="age" min="1" max="20" required>
+            </div>
+            <div>
+                <label for="food">Вид корма:</label>
+                <div class="row">
+                    <p>cухой корм</p>
+                    <input type="checkbox" name="food" id="food" class="dry" value="1" />
+                </div>
+                <div class="row">
+                    <p>влажный корм</p>
+                    <input type="checkbox" name="food" class="wet" value="2" />
+                </div>
+                <div class="row">
+                    <p>натуральный корм</p>
+                    <input type="checkbox" name="food" class="organic" value="3" />
+                </div>
+
+            </div>
+            <div>
+                <label for="photo">Приложить фото котика:</label>
+                <input type="file" id="photo" title="Обязательное поле" required>
+            </div>
+            <div>
+                <p>Дополнительная информация:</p>
+                <textarea name="comments" cols="50" rows="5"></textarea>
+            </div>
+        </fieldset>
+        <button class="submit">Отправить</button>
+    </div>
+    <script src="./script/task-1.js"></script>
+</body>
+
+</html>

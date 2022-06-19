@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(36, 36, 36, 0.188);
+    color: rgba(37, 15, 2, 0.71);
+}
+
+.wrapper {
+    margin: 3% 20%;
+}
+
+.title {
+    font-size: 36px;
+    text-align: center;
+    color: rgba(62, 54, 45, 0.997);
+}
+
+fieldset {
+    margin: 2% 0;
+    padding: 2%;
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input,
+select {
+    outline: none;
+    border: none;
+    padding: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+}
+
+button {
+    padding: 1%;
+    border: none;
+    background-color: rgba(76, 65, 52, 0.316);
+    transition: .5s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(76, 65, 52, 0.608);
+}
+
+/*стили валидации*/
+input:required:valid {
+    background-color: rgba(44, 149, 84, 0.319);
+}
+
+input:required:invalid {
+    background-color: rgba(232, 59, 28, 0.319);
+}

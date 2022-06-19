@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/week 18/styles/task-1.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1 class="title">Опросник для хозяев котиков</h1>
+        <fieldset>
+            <legend> Информация о хозяине </legend>
+            <div>
+                <label for="owner-name">Имя</label>
+                <input type="text" id="owner-name" title="Обязательное поле">
+            </div>
+            <br>
+            <div>
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname">
+            </div>
+            <br>
+            <div>
+                <label for="email">Электронная почта</label>
+                <input type="text" id="email" title="Обязательное поле">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Информация о питомце</legend>
+            <div>
+                <label for="petname">Кличка питомца</label>
+                <input type="text" id="petname" title="Обязательное поле">
+            </div>
+            <div>
+                <p>Порода питомца:</p>
+                <select title="Обязательное поле" id="breed" required>
+                    <option value="1">Мейн-кун</option>
+                    <option value="2">Шотландская вислоухая кошка</option>
+                    <option value="3">Бенгальская кошка</option>
+                    <option value="4">Британская короткошерстаная</option>
+                    <option value="5">Абиссинская кошка</option>
+                    <option value="6">Русская голубая</option>
+                    <option value="7">Сибирская кошка</option>
+                    <option value="8">Короткошерстный ориентал</option>
+                    <option value="9">просто красивый котик</option>
+                </select>
+            </div>
+            <div>
+                <label for="sex">Пол питомца:</label>
+                <div class="row">
+                    <p>самец</p>
+                    <input type="radio" name="s" id="sex" value="m" />
+                </div>
+                <div class="row">
+                    <p>самка</p>
+                    <input type="radio" name="s" value="f" />
+                </div>
+            </div>
+            <div>
+                <label for="age">Возраст питомца:</label>
+                <input type="number" name="age" id="age" min="1" max="20">
+            </div>
+            <div>
+                <label for="photo">Приложить фото котика:</label>
+                <input type="file" id="photo" title="Обязательное поле">
+            </div>
+            <div>
+                <p>Дополнительная информация:</p>
+                <textarea name="comments" id="comments" cols="50" rows="5"></textarea>
+            </div>
+        </fieldset>
+        <button class="submit">OK</button>
+    </div>
+
+    <script>
+        class Сat {
+            constructor(owner, surname, email, petname, breed, sex, age, comments) {
+                this.owner = owner;
+                this.surname = surname;
+                this.email = email;
+                this.petname = petname;
+                this.breed = breed;
+                this.sex = sex;
+                this.age = age;
+                this.food = food;
+                this.comments = comments;
+            }
+        }
+
+        const btn = document.querySelector('.submit');
+        btn.addEventListener('click', createObj);
+
+        function createObj() {
+
+            let owner = document.querySelector('#owner-name').value;
+            let surname = document.querySelector('#surname').value;
+            let email = document.querySelector('#email').value;
+            let petname = document.querySelector('#petname').value;
+            let breed = document.querySelector('#breed').value;
+            let sex = document.querySelector('input[name="s"]:checked').value;
+            let age = document.querySelector('#age').value;
+            let comments = document.querySelector('#comments').value;
+            let userCat = new Сat(owner, surname, email, petname, breed, sex, age, food, comments);
+            console.log(userCat);
+
+        }
+    </script>
+</body>
+
+</html>

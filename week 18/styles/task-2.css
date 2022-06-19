@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+fieldset {
+    width: 400px;
+    margin: 5% auto;
+    padding: 1%;
+}
+
+legend {
+    font-size: 30px;
+}
+
+input {
+    border-color: rgb(187, 192, 191);
+
+    outline: none;
+    margin-bottom: 1%;
+    width: 40%;
+    height: 30px;
+}
+
+.prompt {
+    font-size: 12px;
+    color: grey;
+}
+
+.btn {
+    padding: 1%;
+    cursor: pointer;
+    border-color: rgb(255, 255, 255);
+    transition: .5s;
+    margin-top: 2%;
+}
+
+
+.btn:hover {
+    background-color: rgba(34, 34, 49, 0.248);
+}

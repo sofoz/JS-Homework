@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/task-3.css">
+    <title>Comments box</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="title">Comments Box</h1>
+        <div class="user-info">
+            <img class="photo"
+                src="https://avatars.mds.yandex.net/i?id=f1b28d1c906ebac729fd61d92ca5602f-7047298-images-thumbs&n=13"
+                alt="user photo">
+            <div сlass="info-container">
+                <div>
+                    <input type="text" class="name" placeholder="name">
+                </div>
+                <div>
+                    <input type="url" class="photo-url" placeholder="link to photo">
+                </div>
+            </div>
+        </div>
+        <div>
+            <textarea name="newComment" class="newComment" cols="40" rows="10" placeholder="your comment..."></textarea>
+        </div>
+        <button class="send">Send</button>
+    </div>
+    <div class="comments-container"></div>
+    <script src="./script/task-3.js"></script>
+</body>
+
+</html>
