@@ -13,68 +13,70 @@
 
     <div class="wrapper">
         <h1 class="title">Опросник для хозяев котиков</h1>
-        <fieldset>
-            <legend> Информация о хозяине </legend>
-            <div>
-                <label for="owner-name">Имя</label>
-                <input type="text" id="owner-name" title="Обязательное поле">
-            </div>
-            <br>
-            <div>
-                <label for="surname">Фамилия</label>
-                <input type="text" id="surname">
-            </div>
-            <br>
-            <div>
-                <label for="email">Электронная почта</label>
-                <input type="text" id="email" title="Обязательное поле">
-            </div>
-        </fieldset>
+        <form action="POST" class="form">
+            <fieldset>
+                <legend> Информация о хозяине </legend>
+                <div>
+                    <label for="owner-name">Имя</label>
+                    <input type="text" id="owner-name" title="Обязательное поле">
+                </div>
+                <br>
+                <div>
+                    <label for="surname">Фамилия</label>
+                    <input type="text" id="surname">
+                </div>
+                <br>
+                <div>
+                    <label for="email">Электронная почта</label>
+                    <input type="text" id="email" title="Обязательное поле">
+                </div>
+            </fieldset>
 
-        <fieldset>
-            <legend>Информация о питомце</legend>
-            <div>
-                <label for="petname">Кличка питомца</label>
-                <input type="text" id="petname" title="Обязательное поле">
-            </div>
-            <div>
-                <p>Порода питомца:</p>
-                <select title="Обязательное поле" id="breed" required>
-                    <option value="1">Мейн-кун</option>
-                    <option value="2">Шотландская вислоухая кошка</option>
-                    <option value="3">Бенгальская кошка</option>
-                    <option value="4">Британская короткошерстаная</option>
-                    <option value="5">Абиссинская кошка</option>
-                    <option value="6">Русская голубая</option>
-                    <option value="7">Сибирская кошка</option>
-                    <option value="8">Короткошерстный ориентал</option>
-                    <option value="9">просто красивый котик</option>
-                </select>
-            </div>
-            <div>
-                <label for="sex">Пол питомца:</label>
-                <div class="row">
-                    <p>самец</p>
-                    <input type="radio" name="s" id="sex" value="m" />
+            <fieldset>
+                <legend>Информация о питомце</legend>
+                <div>
+                    <label for="petname">Кличка питомца</label>
+                    <input type="text" id="petname" title="Обязательное поле">
                 </div>
-                <div class="row">
-                    <p>самка</p>
-                    <input type="radio" name="s" value="f" />
+                <div>
+                    <p>Порода питомца:</p>
+                    <select title="Обязательное поле" id="breed" required>
+                        <option value="1">Мейн-кун</option>
+                        <option value="2">Шотландская вислоухая кошка</option>
+                        <option value="3">Бенгальская кошка</option>
+                        <option value="4">Британская короткошерстаная</option>
+                        <option value="5">Абиссинская кошка</option>
+                        <option value="6">Русская голубая</option>
+                        <option value="7">Сибирская кошка</option>
+                        <option value="8">Короткошерстный ориентал</option>
+                        <option value="9">просто красивый котик</option>
+                    </select>
                 </div>
-            </div>
-            <div>
-                <label for="age">Возраст питомца:</label>
-                <input type="number" name="age" id="age" min="1" max="20">
-            </div>
-            <div>
-                <label for="photo">Приложить фото котика:</label>
-                <input type="file" id="photo" title="Обязательное поле">
-            </div>
-            <div>
-                <p>Дополнительная информация:</p>
-                <textarea name="comments" id="comments" cols="50" rows="5"></textarea>
-            </div>
-        </fieldset>
+                <div>
+                    <label for="sex">Пол питомца:</label>
+                    <div class="row">
+                        <p>самец</p>
+                        <input type="radio" name="s" id="sex" value="m" />
+                    </div>
+                    <div class="row">
+                        <p>самка</p>
+                        <input type="radio" name="s" value="f" />
+                    </div>
+                </div>
+                <div>
+                    <label for="age">Возраст питомца:</label>
+                    <input type="number" name="age" id="age" min="1" max="20">
+                </div>
+                <div>
+                    <label for="photo">Приложить фото котика:</label>
+                    <input type="file" id="photo" title="Обязательное поле">
+                </div>
+                <div>
+                    <p>Дополнительная информация:</p>
+                    <textarea name="comments" id="comments" cols="50" rows="5"></textarea>
+                </div>
+            </fieldset>
+        </form>
         <button class="submit">OK</button>
     </div>
 
@@ -88,7 +90,6 @@
                 this.breed = breed;
                 this.sex = sex;
                 this.age = age;
-                this.food = food;
                 this.comments = comments;
             }
         }
@@ -106,10 +107,27 @@
             let sex = document.querySelector('input[name="s"]:checked').value;
             let age = document.querySelector('#age').value;
             let comments = document.querySelector('#comments').value;
-            let userCat = new Сat(owner, surname, email, petname, breed, sex, age, food, comments);
-            console.log(userCat);
+            let userCat = new Сat(owner, surname, email, petname, breed, sex, age, comments);
 
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            let form = document.querySelector(`.form`);
+            form.onsubmit = function postForm(e) {
+                e.preventDefault();
+                fetch("https://httpbin.org/post", {
+                        method: `POST`,
+                        body: new FormData(form),
+                    })
+                    .then(response => response.json())
+                    .then(form => {
+                        console.log(form);
+                    })
+                    .catch(error => console.log(error));
+            }
+
+        });
     </script>
 </body>
 

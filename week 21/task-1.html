@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: rgb(4, 4, 185);
+            height: 100vh;
+        }
+
+        .container {
+            width: 60%;
+            height: 80vh;
+            margin: 2% auto;
+            padding: 3%;
+            text-align: center;
+            border: 1px solid;
+        }
+
+        .title {
+            padding-bottom: 4%;
+        }
+
+        .gifs {
+            width: 100%;
+            padding-top: 3%;
+
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="title">FIND YOUR GIFs</h1>
+        <input class="query" type="text">
+        <button class="search">search</button>
+        <div class="gifs">
+            <img src="" class="gif-1">
+            <img src="" class="gif-2">
+            <img src="" class="gif-3">
+            <img src="" class="gif-4">
+            <img src="" class="gif-5">
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.search');
+        btn.onclick = function (e) {
+            event.preventDefault();
+            let queryTheme = document.querySelector('.query').value;
+            console.log(queryTheme);
+            fetch('https://api.giphy.com/v1/gifs/search?api_key=KSqvKbiUK5xa7psCL4tR0UtePEvWkXUM&q=' + queryTheme +
+                    '&limit=5&offset=0&rating=g&lang=ru')
+                .then(response => response.json())
+                .then(gifs => {
+
+                    document.querySelector('.gif-1').src = gifs.data[0].images.original.url;
+                    document.querySelector('.gif-2').src = gifs.data[1].images.original.url;
+                    document.querySelector('.gif-3').src = gifs.data[2].images.original.url;
+                    document.querySelector('.gif-4').src = gifs.data[3].images.original.url;
+                    document.querySelector('.gif-5').src = gifs.data[4].images.original.url;
+
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ let passwordRep = document.querySelector('#passwordRep');
 
 let sign = document.querySelector('#btn-sign');
 
-let r = `solid rgba(166, 10, 10, 0.681)`;
+let red = `solid rgba(166, 10, 10, 0.681)`;
 let b = `1px solid #ddd`;
 
 let popup = document.querySelector('.popup');
@@ -33,33 +33,34 @@ let check = () => {
 
     if (firstName.value == '') {
         document.querySelector('#firstNameError').innerHTML += "First name is required <br>"
-        firstName.style.border = r
+        firstName.style.border = red
     }
     if (lastName.value == '') {
         document.querySelector('#lastNameError').innerHTML += "Last name is required <br>"
-        lastName.style.border = r
+        lastName.style.border = red
     }
     if (email.value == '') {
         document.querySelector('#emailError').innerHTML += "Email is required <br>"
-        email.style.border = r
+        email.style.border = red
     }
     if (password.value == '') {
         document.querySelector('#passwordError').innerHTML += "Password is required <br>"
-        password.style.border = r
+        password.style.border = red
     } else if (password.value.length < 4) {
         document.querySelector('#passwordError').innerHTML += "Password is shorter then 4 symbols <br>"
-        password.style.border = r
+        password.style.border = red
     }
     if (passwordRep.value == '') {
         document.querySelector('#passwordRepError').innerHTML += "this field is required <br>"
-        passwordRep.style.border = r
+        passwordRep.style.border = red
     } else if (passwordRep.value != password.value) {
         document.querySelector('#passwordRepError').innerHTML += "passwords don't match <br>"
-        passwordRep.style.border = r
+        passwordRep.style.border = red
     }
     else {
         reset()
         sign.addEventListener('mouseup', openPopup);
+        postForm()
     }
 }
 sign.addEventListener('mousedown', check);
@@ -98,3 +99,26 @@ let closePopup = () => {
     location.reload();
 }
 close.addEventListener('click', closePopup);
+
+function postForm() {
+    // объект как параметр запроса
+    let user = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        password: password.value
+    }
+
+    fetch("https://httpbin.org/post", {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+    })
+        .then(response => response.json())
+        .then(user => {
+            console.log(user);
+        })
+        .catch(error => console.log(error));
+}
